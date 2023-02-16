@@ -1,0 +1,12 @@
+.container {
+    min-height: 100vh;
+}
+
+.col {
+    min-height: 100vh;
+    border: 1px solid black;
+}
+
+.card {
+    width: 400px;
+}
