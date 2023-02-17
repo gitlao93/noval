@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MeasureController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\AnnualTargetController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,5 @@ Auth::routes();
 Route::get('/', [ObjectiveController::class, 'index'])->name('objectives.index');
 Route::post('/objectives', [ObjectiveController::class, 'store'])->name('objectives.store');
 Route::post('/measures', [MeasureController::class, 'store'])->name('measures.store');
+Route::post('/annual_targets', [AnnualTargetController::class, 'store'])->name('annual_targets.store');
 

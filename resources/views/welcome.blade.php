@@ -79,8 +79,7 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="objective"
-                                class="col-form-label text-md-start">{{ __('Objective') }}</label>
+                            <label for="objective" class="col-form-label text-md-start">{{ __('Objective') }}</label>
                             <select id="objective" class="form-select mb-3" name="objective_ID">
 
                                 <option selected>select a Objective</option>
@@ -103,20 +102,19 @@
                     </div>
                 </form>
             </div>
-            
+
             <div>
-                <form method="POST" action="{{ route('measures.store') }}"
+                <form method="POST" action="{{ route('annual_targets.store') }}"
                     class="card text-bg-dark px-5 py-2 mx-auto my-3">
                     @csrf
                     <div class="card-header">{{ __('Strategic Measure') }}</div>
                     <div class="card-body">
-                        
 
-                       
+
+
 
                         <div class="row">
-                            <label for="measure"
-                                class="col-form-label text-md-start">{{ __('Measure') }}</label>
+                            <label for="measure" class="col-form-label text-md-start">{{ __('Measure') }}</label>
                             <select class="form-select mb-3" name="measure_ID">
 
                                 <option selected>select a measure</option>
@@ -133,15 +131,14 @@
                         </div>
 
                         <div class="row">
-                            <label for="province"
-                                class="col-form-label text-md-start">{{ __('Province') }}</label>
-                            <select id="province" class="form-select mb-3" name="measure_ID">
+                            <label for="province" class="col-form-label text-md-start">{{ __('Province') }}</label>
+                            <select id="province" class="form-select mb-3" name="province_ID">
 
                                 <option selected>select a province</option>
-                                @foreach($provinces as $province)
-                                <option value="{{$province->province_ID}}">{{$province->province}}</option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{ $province->province_ID }}">{{ $province->province }}</option>
                                 @endforeach
-                               
+
                             </select>
 
                         </div>
@@ -151,8 +148,9 @@
                                 class="col-form-label text-md-start">{{ __('Annual Target') }}</label>
 
                             <div>
-                                <input type="text" id="annual_target" class="form-control @error('annual_target') is-invalid @enderror" name="annual_target"
-                                    value="{{ old('annual_target') }}" required autofocus/>
+                                <input type="text" id="annual_target"
+                                    class="form-control @error('annual_target') is-invalid @enderror"
+                                    name="annual_target" value="{{ old('annual_target') }}" required autofocus />
 
 
                                 @error('annual_target')
@@ -205,12 +203,56 @@
                                     @endforeach
                                 </ul>
                             </td>
+                            @foreach ($provinces as $province)
+                                <td class="text-center align-middle">
+                                    @if (isset($targets[$measures->first()->id][$province->id]))
+                                        {{ $targets[$measures->first()->id][$province->id]->first()->target }}
+                                    @endif
+                                </td>
+                            @endforeach
                         </tr>
                     @endforeach
                 </tbody>
             </table>
 
-           
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="text-center align-middle">Objectives</th>
+                        <th rowspan="2" class="text-center align-middle">Measure</th>
+                        <th colspan="{{ count($provinces) }}" class="text-center align-middle">Annual Target</th>
+                    </tr>
+                    <tr>
+                        @foreach ($provinces as $province)
+                            <th class="text-center align-middle">{{ $province->province }}</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($measures->groupBy('objective_ID') as $objectiveID => $measures)
+                        <tr>
+                            <td>{{ $measures->first()->objective->objective }}</td>
+                            <td>
+                                <ul>
+                                    @foreach ($measures as $measure)
+                                        <li>{{ $measure->measure }}</li>
+                                    @endforeach
+                                </ul>
+                            </td>
+                            @foreach ($provinces as $province)
+                                <td class="text-center align-middle">
+                                    @if (isset($targets[$measures->first()->id][$province->id]))
+                                        {{ $targets[$measures->first()->id][$province->id]->first()->target }}
+                                    @endif
+                                </td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+
+
 
 
         </div>
