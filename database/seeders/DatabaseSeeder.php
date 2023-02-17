@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Province;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,9 +15,24 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Province::factory()->create([
+            'province' => 'Bukidnun',
+        ]);
+
+        Province::factory()->create([
+            'province' => 'Lanao Del Norte',
+        ]);
+
+        Province::factory()->create([
+            'province' => 'Misamis Oriental',
+        ]);
+
+        Province::factory()->create([
+            'province' => 'Misamis Occidental',
+        ]);
+
+        Province::factory()->create([
+            'province' => 'Camiguin',
+        ]);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Measure;
+use App\Models\Province;
 use App\Models\Objective;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,8 @@ class ObjectiveController extends Controller
                     ->groupBy('objective_ID', 'measure')
                     ->get();
         $objectives = Objective::all();
-        return view('/welcome', compact('measures', 'objectives'));
+        $provinces = Province::all();
+        return view('/welcome', compact('measures', 'objectives', 'provinces'));
     }
     
 

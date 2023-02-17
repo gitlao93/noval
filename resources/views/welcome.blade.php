@@ -112,23 +112,7 @@
                     <div class="card-body">
                         
 
-                        <div class="row">
-                            <label for="objective"
-                                class="col-form-label text-md-start">{{ __('Objective') }}</label>
-                            <select id="objective" class="form-select mb-3" name="objective_ID">
-
-                                <option selected>select a Objective</option>
-                                @foreach ($objectives as $objective)
-                                    <option value="{{ $objective->objective_ID }}">{{ $objective->objective }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('objective_ID')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
+                       
 
                         <div class="row">
                             <label for="measure"
@@ -154,11 +138,9 @@
                             <select id="province" class="form-select mb-3" name="measure_ID">
 
                                 <option selected>select a province</option>
-                                <option >Bukidnun</option>
-                                <option >Lanao Del Norte</option>
-                                <option >Misamis Oriental</option>
-                                <option >Misamit Occidental</option>
-                                <option >Camiguin</option>
+                                @foreach($provinces as $province)
+                                <option value="{{$province->province_ID}}">{{$province->province}}</option>
+                                @endforeach
                                
                             </select>
 
@@ -227,6 +209,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+           
 
 
         </div>
