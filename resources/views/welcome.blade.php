@@ -177,51 +177,12 @@
 
         <div class="col align-self-stretch px-5 py-3 mx-auto">
 
-            <table class="table">
+            {{-- <table class="table">
                 <thead>
                     <tr>
                         <th rowspan="2" class="text-center align-middle">Objectives</th>
                         <th rowspan="2" class="text-center align-middle">Measure</th>
-                        <th colspan="3" class="text-center align-middle">Annual Target</th>
-                    </tr>
-                    <tr>
-                        <th class="text-center align-middle">Bukidnun</th>
-                        <th class="text-center align-middle">Lanao Del Norte</th>
-                        <th class="text-center align-middle">Misamis Oriental</th>
-                        <th class="text-center align-middle">Misamis Occidental</th>
-                        <th class="text-center align-middle">Camiguin</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($measures->groupBy('objective_ID') as $objectiveID => $measures)
-                        <tr>
-                            <td>{{ $measures->first()->objective->objective }}</td>
-                            <td>
-                                <ul>
-                                    @foreach ($measures as $measure)
-                                        <li>{{ $measure->measure }}</li>
-                                    @endforeach
-                                </ul>
-                            </td>
-                            @foreach ($provinces as $province)
-                                <td class="text-center align-middle">
-                                    @if (isset($targets[$measures->first()->id][$province->id]))
-                                        {{ $targets[$measures->first()->id][$province->id]->first()->target }}
-                                    @endif
-                                </td>
-                            @endforeach
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th rowspan="2" class="text-center align-middle">Objectives</th>
-                        <th rowspan="2" class="text-center align-middle">Measure</th>
-                        <th colspan="{{ count($provinces) }}" class="text-center align-middle">Annual Target</th>
+                        <th colspan="{{ $provinces->count() }}" class="text-center align-middle">Annual Target</th>
                     </tr>
                     <tr>
                         @foreach ($provinces as $province)
@@ -241,16 +202,86 @@
                                 </ul>
                             </td>
                             @foreach ($provinces as $province)
-                                <td class="text-center align-middle">
-                                    @if (isset($targets[$measures->first()->id][$province->id]))
-                                        {{ $targets[$measures->first()->id][$province->id]->first()->target }}
-                                    @endif
+                                <td>
+                                    @php
+                                        $targetValue = 'N/A';
+                                        foreach ($measures as $measure) {
+                                            $target = $targets
+                                                ->where('province_ID', $province->province_ID)
+                                                ->where('measure_ID', $measure->measure_ID)
+                                                ->first();
+                                            if ($target) {
+                                                $targetValue = $target->annual_target;
+                                                break;
+                                            }
+                                        }
+                                    @endphp
+                                    {{ $targetValue }}
+                                </td>
+                            @endforeach
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table> --}}
+
+
+
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" class="text-center align-middle">Objectives</th>
+                        <th rowspan="2" class="text-center align-middle">Measure</th>
+                        <th colspan="{{ $provinces->count() }}" class="text-center align-middle">Annual Target</th>
+                    </tr>
+                    <tr>
+                        @foreach ($provinces as $province)
+                            <th class="text-center align-middle">{{ $province->province }}</th>
+                        @endforeach
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($measures->groupBy('objective_ID') as $objectiveID => $measures)
+                        <tr>
+                            <td>{{ $measures->first()->objective->objective }}</td>
+                            <td>
+                                @foreach ($measures as $measure)
+                                    <td>
+                                        {{ $measure->measure }}
+                                    </td>
+                                @endforeach
+                            </td>
+                            @foreach ($provinces as $province)
+                                <td>
+                                    @php
+                                        $targetValue = 'N/A';
+
+                                        foreach ($measures as $measure) {
+                                            $target = $targets
+                                                ->where('province_ID', $province->province_ID)
+                                                ->where('measure_ID', $measure->measure_ID)
+                                                ->first();
+                                            if ($target) {
+                                                $targetValue = $target->annual_target;
+                                                break;
+                                            }
+                                        }
+
+                                    @endphp
+                                    {{ $targetValue }}
                                 </td>
                             @endforeach
                         </tr>
                     @endforeach
                 </tbody>
             </table>
+
+
+
+
+
+
+
 
 
 

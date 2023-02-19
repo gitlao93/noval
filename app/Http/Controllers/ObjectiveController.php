@@ -16,25 +16,32 @@ class ObjectiveController extends Controller
         //             ->select('objective_ID', 'measure')
         //             ->groupBy('objective_ID', 'measure')
         //             ->get();
-         $objectives = Objective::all();
+         
         // $provinces = Province::all();
         // $measures = Measure::all();
         // return view('/welcome', compact('objandmeas', 'measures', 'objectives', 'provinces'));
-
-        $measures = Measure::with('objective')
-        ->select('objective_ID', 'objective_ID', 'measure')
-        ->orderBy('objective_ID')
-        ->get();
-
+        $objectives = Objective::all();
+        // $measures = Measure::with('objective')
+        // ->select('objective_ID', 'objective_ID', 'measure')
+        // ->orderBy('objective_ID')
+        // ->get();
+        $measures = Measure::all();
         $provinces = Province::select('province_ID', 'province')
             ->orderBy('province_ID')
             ->get();
 
-        $targets = AnnualTarget::select('measure_ID', 'province_ID', 'annual_target')
-            ->whereIn('measure_ID', $measures->pluck('measure_ID'))
-            ->whereIn('province_ID', $provinces->pluck('province_ID'))
-            ->get()
-            ->groupBy(['measure_ID', 'province_ID']);
+        // $targets = AnnualTarget::select('measure_ID', 'province_ID', 'annual_target')
+        //     ->whereIn('measure_ID', $measures->pluck('measure_ID'))
+        //     ->whereIn('province_ID', $provinces->pluck('province_ID'))
+        //     ->get()
+        //     ->groupBy(['measure_ID', 'province_ID']);
+
+        $targets = AnnualTarget::all();
+        // $targets = AnnualTarget::whereIn('measure_ID', $measures->pluck('measure_ID'))
+        //         ->whereIn('province_ID', $provinces->pluck('province_ID'))
+        //         ->get()
+        //         ->groupBy(['measure_ID', 'province_ID']);
+            // dd($targets);
 
         return view('/welcome', compact('measures', 'provinces', 'targets', 'objectives'));
     }
