@@ -236,42 +236,29 @@
                     </tr>
                     <tr>
                         @foreach ($provinces as $province)
-                            <th class="text-center align-middle">{{ $province->province }}</th>
+                        <th class="text-center align-middle">{{ $province->province }}</th>
                         @endforeach
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($measures->groupBy('objective_ID') as $objectiveID => $measures)
+                    @foreach ($objectives as $objective)
+                    <tr>
+                        <td rowspan="{{ $objective->measures->count() + 1 }}">{{ $objective->objective }}</td>
+                        @foreach ($objective->measures as $measure)
                         <tr>
-                            <td>{{ $measures->first()->objective->objective }}</td>
-                            <td>
-                                @foreach ($measures as $measure)
-                                    <td>
-                                        {{ $measure->measure }}
-                                    </td>
-                                @endforeach
-                            </td>
+                            <td>{{ $measure->measure }}</td>
                             @foreach ($provinces as $province)
-                                <td>
-                                    @php
-                                        $targetValue = 'N/A';
-
-                                        foreach ($measures as $measure) {
-                                            $target = $targets
-                                                ->where('province_ID', $province->province_ID)
-                                                ->where('measure_ID', $measure->measure_ID)
-                                                ->first();
-                                            if ($target) {
-                                                $targetValue = $target->annual_target;
-                                                break;
-                                            }
-                                        }
-
-                                    @endphp
-                                    {{ $targetValue }}
-                                </td>
+                            <td>
+                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                @else
+                                N/A
+                                @endif
+                            </td>
                             @endforeach
                         </tr>
+                        @endforeach
+                    </tr>
                     @endforeach
                 </tbody>
             </table>
