@@ -25,4 +25,5 @@ Route::get('/', [ObjectiveController::class, 'index'])->name('objectives.index')
 Route::post('/objectives', [ObjectiveController::class, 'store'])->name('objectives.store');
 Route::post('/measures', [MeasureController::class, 'store'])->name('measures.store');
 Route::post('/annual_targets', [AnnualTargetController::class, 'store'])->name('annual_targets.store');
+Route::put('/annual_targets', [AnnualTargetController::class, 'update'])->name('annual_targets.update');
 

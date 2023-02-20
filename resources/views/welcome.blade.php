@@ -198,21 +198,27 @@
                         <tr>
                             <td>{{ $measure->measure }}</td>
                             @foreach ($provinces as $province)
-                            
                                 <td>
                                     @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                        {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
+                                            id="{{ $province->province_ID }}">
+                                            {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                        </a>
+                                        <x-update_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" :target="$annual_targets[$measure->measure_ID][
+                                            $province->province_ID
+                                        ]->first()->annual_target_ID" />
                                     @else
-                                        <a href="#" data-bs-toggle="modal" data-bs-target="#<?=$measure->measure_ID."_".$province->province_ID?>" id="{{$province->province_ID}}">N/A</a>
-                                        <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID"/>
-                                        
+                                        <a href="#" data-bs-toggle="modal"
+                                            data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
+                                            id="{{ $province->province_ID }}">N/A</a>
+                                        <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" />
                                     @endif
                                 </td>
-                                
+
                                 {{--  --}}
                             @endforeach
                         </tr>
-                        
                     @endforeach
                     </tr>
                     @endforeach
