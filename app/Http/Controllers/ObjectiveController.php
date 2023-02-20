@@ -13,17 +13,6 @@ class ObjectiveController extends Controller
     public function index()
     {
 
-        // $objectives = Objective::all();
-        // $measures = Measure::all();
-        // $provinces = Province::select('province_ID', 'province')
-        //     ->orderBy('province_ID')
-        //     ->get();
-        // $targets = AnnualTarget::all();
-
-
-        // return view('/welcome', compact('measures', 'provinces', 'targets', 'objectives'));
-
-
         $objectives = Objective::all();
 
         $measures = Measure::all();
@@ -39,4 +28,19 @@ class ObjectiveController extends Controller
     
         return view('/welcome', compact('objectives', 'measures', 'provinces', 'annual_targets'));
     }
+
+    public function store(Request $request)
+    {
+       
+        $validatedData = $request->validate([
+            'objective' => 'required',
+        ]);
+        // Create the objective
+        $objective = new Objective;
+        $objective->objective = $validatedData['objective'];
+        $objective->save();
+        // Redirect to the objectives index page
+        return redirect()->route('objectives.index')->with('success', 'Objective created successfully!');
+    }
+
 }

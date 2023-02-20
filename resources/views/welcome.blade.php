@@ -104,7 +104,7 @@
             </div>
 
             <div>
-                <form method="POST" action="{{ route('annual_targets.store') }}"
+                {{-- <form method="POST" action="{{ route('annual_targets.store') }}"
                     class="card text-bg-dark px-5 py-2 mx-auto my-3">
                     @csrf
                     <div class="card-header">{{ __('Strategic Measure') }}</div>
@@ -168,7 +168,7 @@
                             <button class="btn btn-primary" type="submit">{{ __('Add Annual Target') }}</button>
                         </div>
                     </div>
-                </form>
+                </form> --}}
             </div>
 
         </div>
@@ -177,7 +177,7 @@
 
         <div class="col align-self-stretch px-5 py-3 mx-auto">
 
-            {{-- <table class="table">
+            <table class="table">
                 <thead>
                     <tr>
                         <th rowspan="2" class="text-center align-middle">Objectives</th>
@@ -191,87 +191,33 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($measures->groupBy('objective_ID') as $objectiveID => $measures)
-                        <tr>
-                            <td>{{ $measures->first()->objective->objective }}</td>
-                            <td>
-                                <ul>
-                                    @foreach ($measures as $measure)
-                                        <li>{{ $measure->measure }}</li>
-                                    @endforeach
-                                </ul>
-                            </td>
-                            @foreach ($provinces as $province)
-                                <td>
-                                    @php
-                                        $targetValue = 'N/A';
-                                        foreach ($measures as $measure) {
-                                            $target = $targets
-                                                ->where('province_ID', $province->province_ID)
-                                                ->where('measure_ID', $measure->measure_ID)
-                                                ->first();
-                                            if ($target) {
-                                                $targetValue = $target->annual_target;
-                                                break;
-                                            }
-                                        }
-                                    @endphp
-                                    {{ $targetValue }}
-                                </td>
-                            @endforeach
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table> --}}
-
-
-
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th rowspan="2" class="text-center align-middle">Objectives</th>
-                        <th rowspan="2" class="text-center align-middle">Measure</th>
-                        <th colspan="{{ $provinces->count() }}" class="text-center align-middle">Annual Target</th>
-                    </tr>
-                    <tr>
-                        @foreach ($provinces as $province)
-                        <th class="text-center align-middle">{{ $province->province }}</th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
                     @foreach ($objectives as $objective)
-                    <tr>
-                        <td rowspan="{{ $objective->measures->count() + 1 }}">{{ $objective->objective }}</td>
-                        @foreach ($objective->measures as $measure)
+                        <tr>
+                            <td rowspan="{{ $objective->measures->count() + 1 }}">{{ $objective->objective }}</td>
+                            @foreach ($objective->measures as $measure)
                         <tr>
                             <td>{{ $measure->measure }}</td>
                             @foreach ($provinces as $province)
-                            <td>
-                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
-                                @else
-                                N/A
-                                @endif
-                            </td>
+                            
+                                <td>
+                                    @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                        {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                    @else
+                                        <a href="#" data-bs-toggle="modal" data-bs-target="#<?=$measure->measure_ID."_".$province->province_ID?>" id="{{$province->province_ID}}">N/A</a>
+                                        <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID"/>
+                                        
+                                    @endif
+                                </td>
+                                
+                                {{--  --}}
                             @endforeach
                         </tr>
-                        @endforeach
+                        
+                    @endforeach
                     </tr>
                     @endforeach
                 </tbody>
             </table>
-
-
-
-
-
-
-
-
-
-
 
         </div>
 
