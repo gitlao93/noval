@@ -95,6 +95,23 @@
                             @enderror
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="division" class="col-form-label text-md-start">{{ __('Division') }}</label>
+                            <select id="division" class="form-select mb-3" name="division_ID">
+
+                                <option selected>select a Divison</option>
+                                @foreach ($divisions as $division)
+                                    <option value="{{ $division->division_ID }}">{{ $division->division }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('division_ID')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+
 
                         <div class="d-grid col-10 mx-auto my-3">
                             <button class="btn btn-primary" type="submit">{{ __('Add Measure') }}</button>
@@ -103,127 +120,13 @@
                 </form>
             </div>
 
-            <div>
-                {{-- <form method="POST" action="{{ route('annual_targets.store') }}"
-                    class="card text-bg-dark px-5 py-2 mx-auto my-3">
-                    @csrf
-                    <div class="card-header">{{ __('Strategic Measure') }}</div>
-                    <div class="card-body">
-
-
-
-
-                        <div class="row">
-                            <label for="measure" class="col-form-label text-md-start">{{ __('Measure') }}</label>
-                            <select class="form-select mb-3" name="measure_ID">
-
-                                <option selected>select a measure</option>
-                                @foreach ($measures as $measure)
-                                    <option value="{{ $measure->measure_ID }}">{{ $measure->measure }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            @error('measure_ID')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                            @enderror
-                        </div>
-
-                        <div class="row">
-                            <label for="province" class="col-form-label text-md-start">{{ __('Province') }}</label>
-                            <select id="province" class="form-select mb-3" name="province_ID">
-
-                                <option selected>select a province</option>
-                                @foreach ($provinces as $province)
-                                    <option value="{{ $province->province_ID }}">{{ $province->province }}</option>
-                                @endforeach
-
-                            </select>
-
-                        </div>
-
-                        <div class="row">
-                            <label for="annual_target"
-                                class="col-form-label text-md-start">{{ __('Annual Target') }}</label>
-
-                            <div>
-                                <input type="text" id="annual_target"
-                                    class="form-control @error('annual_target') is-invalid @enderror"
-                                    name="annual_target" value="{{ old('annual_target') }}" required autofocus />
-
-
-                                @error('annual_target')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-
-
-                            </div>
-                        </div>
-
-
-                        <div class="d-grid col-10 mx-auto my-3">
-                            <button class="btn btn-primary" type="submit">{{ __('Add Annual Target') }}</button>
-                        </div>
-                    </div>
-                </form> --}}
-            </div>
 
         </div>
 
 
 
         <div class="col align-self-stretch px-5 py-3 mx-auto">
-
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th rowspan="2" class="text-center align-middle">Objectives</th>
-                        <th rowspan="2" class="text-center align-middle">Measure</th>
-                        <th colspan="{{ $provinces->count() }}" class="text-center align-middle">Annual Target</th>
-                    </tr>
-                    <tr>
-                        @foreach ($provinces as $province)
-                            <th class="text-center align-middle">{{ $province->province }}</th>
-                        @endforeach
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($objectives as $objective)
-                        <tr>
-                            <td rowspan="{{ $objective->measures->count() + 1 }}">{{ $objective->objective }}</td>
-                            @foreach ($objective->measures as $measure)
-                        <tr>
-                            <td>{{ $measure->measure }}</td>
-                            @foreach ($provinces as $province)
-                                <td>
-                                    @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                        <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
-                                            id="{{ $province->province_ID }}">
-                                            {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
-                                        </a>
-                                        <x-update_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" :target="$annual_targets[$measure->measure_ID][
-                                            $province->province_ID
-                                        ]->first()->annual_target_ID" />
-                                    @else
-                                        <a href="#" data-bs-toggle="modal"
-                                            data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
-                                            id="{{ $province->province_ID }}">N/A</a>
-                                        <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" />
-                                    @endif
-                                </td>
-
-                                {{--  --}}
-                            @endforeach
-                        </tr>
-                    @endforeach
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
+            <x-opcr_table :provinces=$provinces :objectives=$objectives :measures=$measures :annual_targets=$annual_targets/>
 
         </div>
 

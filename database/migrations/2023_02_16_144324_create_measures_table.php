@@ -15,11 +15,17 @@ return new class extends Migration
             $table->id('measure_ID');
             $table->string('measure');
             $table->unsignedBigInteger('objective_ID');
+            $table->unsignedBigInteger('division_ID');
             $table->timestamps();
 
             $table->foreign('objective_ID')
                 ->references('objective_ID')
                 ->on('objectives')
+                ->onDelete('restrict');
+
+            $table->foreign('division_ID')
+                ->references('division_ID')
+                ->on('divisions')
                 ->onDelete('restrict');
         });
     }

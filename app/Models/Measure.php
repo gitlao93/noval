@@ -12,7 +12,8 @@ class Measure extends Model
     protected $primaryKey = 'measure_ID';
     protected $fillable = [
         'measure',
-        'objective_ID'
+        'objective_ID',
+        'division_ID'
     ];
 
     public function objective()

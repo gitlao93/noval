@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Measure;
+use App\Models\Division;
 use App\Models\Province;
 use App\Models\Objective;
 use App\Models\AnnualTarget;
@@ -25,8 +26,10 @@ class ObjectiveController extends Controller
             ->whereIn('province_ID', $provinces->pluck('province_ID'))
             ->get()
             ->groupBy(['measure_ID', 'province_ID']);
+        
+        $divisions = Division::all();
     
-        return view('/welcome', compact('objectives', 'measures', 'provinces', 'annual_targets'));
+        return view('/welcome', compact('objectives', 'measures', 'provinces', 'annual_targets', 'divisions'));
     }
 
     public function store(Request $request)

@@ -11,13 +11,15 @@ class MeasureController extends Controller
     {
         $validatedData = $request->validate([
             'measure' => 'required',
-            'objective_ID' => 'required'
+            'objective_ID' => 'required',
+            'division_ID' => 'required'
         ]);
 
         // Create the measure
         $measure = new Measure;
         $measure->measure = $validatedData['measure'];
         $measure->objective_ID = $validatedData['objective_ID'];
+        $measure->division_ID = $validatedData['division_ID'];
         $measure->save();
 
         // Redirect to the measure index page

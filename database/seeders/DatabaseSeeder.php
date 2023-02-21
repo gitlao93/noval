@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Division;
 use App\Models\Province;
 use Illuminate\Database\Seeder;
 
@@ -33,6 +34,18 @@ class DatabaseSeeder extends Seeder
 
         Province::factory()->create([
             'province' => 'Camiguin',
+        ]);
+
+        Division::factory()->create([
+            'division' => 'BDD',
+        ]);
+
+        Division::factory()->create([
+            'division' => 'CPD',
+        ]);
+
+        Division::factory()->create([
+            'division' => 'FAD',
         ]);
     }
 }
