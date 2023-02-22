@@ -14,11 +14,15 @@ class ObjectiveController extends Controller
 {
     public function index()
     {
-        // $opcrs_act = Opcr::where('is_active', 1)->get();
+        $opcrs_active = Opcr::where('is_active', 1)->get();
 
-        // $objectives = Objective::whereHas('opcr', function ($query) {
-        //     $query->where('is_active', 1);
-        // })->get();
+    
+
+        $objectivesact = Objective::whereHas('opcr', function ($query) use ($opcrs_active) {
+            $query->whereIn('opcr_ID', $opcrs_active->pluck('opcr_ID'));
+        })->get();
+        
+        
         $objectives = Objective::all();
 
         $measures = Measure::all();
@@ -34,9 +38,10 @@ class ObjectiveController extends Controller
         
         $divisions = Division::all();
         $opcrs = Opcr::all();
+
         
     
-        return view('/welcome', compact('objectives', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs'));
+        return view('/welcome', compact('objectives','objectivesact', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs', 'opcrs_active'));
     }
 
     public function store(Request $request)

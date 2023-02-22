@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Objective;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Opcr extends Model
 {
@@ -14,4 +15,9 @@ class Opcr extends Model
         'opcr',
         'is_active'
     ];
+
+    public function objectives()
+    {
+        return $this->hasMany(Objective::class, 'opcr_ID');
+    }
 }
