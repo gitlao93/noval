@@ -13,6 +13,7 @@ class Objective extends Model
 
     protected $fillable = [
         'objective',
+        'opcr_ID'
     ];
 
     public function measures()

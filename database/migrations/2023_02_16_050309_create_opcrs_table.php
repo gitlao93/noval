@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('objectives', function (Blueprint $table) {
-            $table->id('objective_ID');
-            $table->string('objective');
-            $table->unsignedBigInteger('opcr_ID');
+        Schema::create('opcrs', function (Blueprint $table) {
+            $table->id('opcr_ID');
+            $table->string('opcr');
+            $table->integer('is_active')->default(0);
             $table->timestamps();
-
-            $table->foreign('opcr_ID')
-                ->references('opcr_ID')
-                ->on('opcrs')
-                ->onDelete('restrict');
         });
     }
 
@@ -29,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('objectives');
+        Schema::dropIfExists('opcrs');
     }
 };
