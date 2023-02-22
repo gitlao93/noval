@@ -1,5 +1,5 @@
-@props(['objectives', 'measures', 'provinces', 'annual_targets'])
-
+@props(['objectivesact', 'measures', 'provinces', 'annual_targets','opcrs_active'])
+<h1>{{$opcrs_active->opcr}}</h1>
 <table class="table table-bordered border-primary">
     <thead>
         <tr>
@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($objectives as $objective)
+        @foreach ($objectivesact as $objective)
             <tr>
                 <td rowspan="{{ $objective->measures->count() + 1 }}" class="text-center align-middle">
                     {{ $objective->objective }}</td>

@@ -44,7 +44,8 @@
 
 
         <div class="col align-self-stretch px-5 py-3 mx-auto">
-            <x-opcr_table :provinces=$provinces :objectives=$objectives :measures=$measures :annual_targets=$annual_targets/>
+
+            <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets :opcrs_active=$opcrs_active[0]/>
 
         </div>
 
