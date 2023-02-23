@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('measure');
             $table->unsignedBigInteger('objective_ID');
             $table->unsignedBigInteger('division_ID');
+            $table->unsignedBigInteger('driver_ID')->nullable();
             $table->timestamps();
 
             $table->foreign('objective_ID')
@@ -26,6 +27,11 @@ return new class extends Migration
             $table->foreign('division_ID')
                 ->references('division_ID')
                 ->on('divisions')
+                ->onDelete('restrict');
+
+            $table->foreign('driver_ID')
+                ->references('driver_ID')
+                ->on('drivers')
                 ->onDelete('restrict');
         });
     }

@@ -38,6 +38,10 @@
                 <x-add_measure_form :objectives=$objectives :divisions=$divisions/>
             </div>
 
+            <div>
+                <x-add_driver_form :opcrs=$opcrs/>
+            </div>
+
 
         </div>
 
@@ -45,7 +49,9 @@
 
         <div class="col align-self-stretch px-5 py-3 mx-auto">
 
-            <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets :opcrs_active=$opcrs_active[0]/>
+            <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
+
+            <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures/>
 
         </div>
 
