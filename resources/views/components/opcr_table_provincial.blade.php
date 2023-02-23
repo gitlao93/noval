@@ -5,6 +5,7 @@
         <tr>
             <th rowspan="2" class="text-center align-middle">Objectives</th>
             <th rowspan="2" class="text-center align-middle">Measure</th>
+            <th rowspan="2" class="text-center align-middle">Div</th>
             <th colspan="{{ $provinces->count() }}" class="text-center align-middle">Annual Target</th>
         </tr>
         <tr>
@@ -15,12 +16,16 @@
     </thead>
     <tbody>
         @foreach ($objectivesact as $objective)
+            
             <tr>
                 <td rowspan="{{ $objective->measures->count() + 1 }}" class="text-center align-middle">
                     {{ $objective->objective }}</td>
                 @foreach ($objective->measures as $measure)
+                
+                @if ($measure->division->division == 'BDD')
             <tr>
                 <td class="text-center align-middle">{{ $measure->measure }}</td>
+                <td class="text-center align-middle">{{ $measure->division->division }}</td>
                 @foreach ($provinces as $province)
                     <td class="text-center align-middle">
                         @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
@@ -38,10 +43,10 @@
                             <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" />
                         @endif
                     </td>
-
-                    {{--  --}}
                 @endforeach
+                
             </tr>
+            @endif
         @endforeach
         </tr>
         @endforeach

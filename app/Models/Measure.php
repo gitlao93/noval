@@ -20,4 +20,14 @@ class Measure extends Model
     {
         return $this->belongsTo(Objective::class, 'objective_ID');
     }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'division_ID');
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo(driver::class, 'driver_ID');
+    }
 }
