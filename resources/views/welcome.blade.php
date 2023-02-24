@@ -42,6 +42,10 @@
                 <x-add_driver_form :opcrs=$opcrs/>
             </div>
 
+            <div>
+                <x-group_driver_form :measures=$measures :drivers=$driversact/>
+            </div>
+
 
         </div>
 
@@ -52,6 +56,8 @@
             <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
 
             <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
+
+            <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures :annual_targets=$annual_targets/>
 
         </div>
 

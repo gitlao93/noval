@@ -25,4 +25,23 @@ class MeasureController extends Controller
         // Redirect to the measure index page
         return redirect()->route('objectives.index')->with('success', 'Measure created successfully!');
     }
+
+    public function update(Request $request)
+    {
+        $validatedData = $request->validate([
+            'driver_ID' => 'required',
+            'measure_ID' => 'required',
+
+
+        ]);
+        
+        // update
+        $measure_id = $request->input('measure_ID');
+        $measure = Measure::find($measure_id);
+        $measure ->driver_ID = $request->input('driver_ID');
+        $measure->save();
+
+        // Redirect to the measure index page
+        return redirect()->route('objectives.index')->with('success', 'driver has been updated successfully!');
+    }
 }
