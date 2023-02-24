@@ -47,11 +47,10 @@ class ObjectiveController extends Controller
         $divisions = Division::all();
         $opcrs = Opcr::all();
 
-        // Retrieve the province Bukidnon
-        $bukidnon = Province::where('province', 'Bukidnon')->first();
+
         
     
-        return view('/welcome', compact('objectives','objectivesact', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs', 'opcrs_active','driversact', 'bukidnon'));
+        return view('/welcome', compact('objectives','objectivesact', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs', 'opcrs_active','driversact'));
     }
 
     public function store(Request $request)
