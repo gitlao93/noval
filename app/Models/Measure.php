@@ -13,7 +13,8 @@ class Measure extends Model
     protected $fillable = [
         'measure',
         'objective_ID',
-        'division_ID'
+        'division_ID',
+        'driver_ID'
     ];
 
     public function objective()

@@ -27,6 +27,7 @@ Route::get('/', [ObjectiveController::class, 'index'])->name('objectives.index')
 Route::post('/objectives', [ObjectiveController::class, 'store'])->name('objectives.store');
 Route::post('/drivers', [DriverController::class, 'store'])->name('drivers.store');
 Route::post('/measures', [MeasureController::class, 'store'])->name('measures.store');
+Route::post('/measures-update', [MeasureController::class, 'update'])->name('measures.update');
 Route::post('/annual_targets', [AnnualTargetController::class, 'store'])->name('annual_targets.store');
 Route::post('/opcr', [OpcrController::class, 'store'])->name('opcr.store');
 Route::put('/annual_targets', [AnnualTargetController::class, 'update'])->name('annual_targets.update');
