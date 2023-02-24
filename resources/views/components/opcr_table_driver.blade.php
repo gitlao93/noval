@@ -24,18 +24,11 @@
                 @foreach ($provinces as $province)
                     <td class="text-center align-middle">
                         @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                            <a href="#" data-bs-toggle="modal"
-                                data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
-                                id="{{ $province->province_ID }}" class="text-success">
+                            <p>
                                 {{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
-                            </a>
-                            <x-update_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" :target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()
-                                ->annual_target_ID" />
+                            </p>
                         @else
-                            <a href="#" data-bs-toggle="modal"
-                                data-bs-target="#<?= $measure->measure_ID . '_' . $province->province_ID ?>"
-                                id="{{ $province->province_ID }}" class="text-danger">N/A</a>
-                            <x-add_target_modal :measure="$measure->measure_ID" :province="$province->province_ID" />
+                            <p>N/A</p>
                         @endif
                     </td>
 
