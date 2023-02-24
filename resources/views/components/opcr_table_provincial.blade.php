@@ -34,9 +34,9 @@
                         @foreach ($provinces as $province)
                             <td class="text-center align-middle">
                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                             </td>
@@ -83,9 +83,9 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -133,9 +133,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -185,9 +185,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -235,9 +235,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -287,9 +287,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -344,9 +344,9 @@
                         @foreach ($provinces as $province)
                             <td class="text-center align-middle">
                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                             </td>
@@ -394,9 +394,9 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -444,9 +444,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -496,9 +496,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -546,9 +546,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -598,9 +598,9 @@
                                             <td class="text-center align-middle">
 
                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                                             </td>
@@ -666,9 +666,9 @@
                         @foreach ($provinces as $province)
                             <td class="text-center align-middle">
                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p class="text-success">{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
                                                 @else
-                                                    <p class="text-danger">N/A</p>
+                                                    <p>N/A</p>
                                                     
                                                 @endif
                             </td>
