@@ -1,4 +1,4 @@
-@props(['objectivesact', 'measures', 'provinces', 'annual_targets', 'selected_province'])
+@props(['objectivesact', 'measures', 'provinces', 'annual_targets'])
 <h1>This part is for the Provincial Level View</h1>
 {{-- BDD --}}
 <h2>BDD</h2>
