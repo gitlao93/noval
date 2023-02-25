@@ -24,9 +24,12 @@ class ObjectiveController extends Controller
         })->get();
     
 
-        $driversact = Driver::whereHas('opcr', function ($query) use ($opcrs_active) {
-            $query->whereIn('opcr_ID', $opcrs_active->pluck('opcr_ID'));
-        })->get();
+        $driversact = Driver::join('divisions', 'divisions.division_ID', '=', 'drivers.division_ID')
+                ->whereHas('opcr', function ($query) use ($opcrs_active) {
+                    $query->whereIn('opcr_ID', $opcrs_active->pluck('opcr_ID'));
+                })
+                ->get(['drivers.*', 'divisions.division']);
+
         
         
         $objectives = Objective::all();

@@ -1,4 +1,4 @@
-@props(['opcrs'])
+@props(['opcrs', 'divisions'])
 
 
 
@@ -38,8 +38,32 @@
             @enderror
         </div>
 
+        <div class="row mb-3">
+            <label for="division" class="col-form-label text-md-start">{{ __('Division') }}</label>
+            <select id="division" class="form-select mb-3" name="division_ID">
+
+                <option selected>select a Divsion</option>
+                @foreach ($divisions as $division)
+                    <option value="{{ $division->division_ID }}">{{ $division->division }}
+                    </option>
+                @endforeach
+            </select>
+            @error('division_ID')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
         <div class="d-grid col-10 mx-auto my-3">
             <button class="btn btn-primary" type="submit">{{ __('Add Driver') }}</button>
         </div>
     </div>
 </form>
+
+
+
+
+
+
+

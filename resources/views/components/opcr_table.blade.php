@@ -18,6 +18,7 @@
             <tr>
                 <td rowspan="{{ $objective->measures->count() + 1 }}" class="text-center align-middle">
                     {{ $objective->objective }}</td>
+                    
                 @foreach ($objective->measures as $measure)
             <tr>
                 <td class="text-center align-middle">{{ $measure->measure }}</td>

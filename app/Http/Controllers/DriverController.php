@@ -12,12 +12,14 @@ class DriverController extends Controller
        
         $validatedData = $request->validate([
             'driver' => 'required',
-            'opcr_ID' => 'required'
+            'opcr_ID' => 'required',
+            'division_ID' => 'required'
         ]);
         // Create the objective
         $driver = new Driver;
         $driver->driver = $validatedData['driver'];
         $driver->opcr_ID = $validatedData['opcr_ID'];
+        $driver->division_ID = $validatedData['division_ID'];
         $driver->save();
         // Redirect to the objectives index page
         return redirect()->route('objectives.index')->with('success', 'driver created successfully!');

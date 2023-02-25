@@ -15,11 +15,16 @@ return new class extends Migration
             $table->id('driver_ID');
             $table->string('driver');
             $table->unsignedBigInteger('opcr_ID');
+            $table->unsignedBigInteger('division_ID');
             $table->timestamps();
 
             $table->foreign('opcr_ID')
                 ->references('opcr_ID')
                 ->on('opcrs')
+                ->onDelete('restrict');
+            $table->foreign('division_ID')
+                ->references('division_ID')
+                ->on('divisions')
                 ->onDelete('restrict');
         });
     }

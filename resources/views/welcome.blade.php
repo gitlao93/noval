@@ -39,10 +39,11 @@
             </div>
 
             <div>
-                <x-add_driver_form :opcrs=$opcrs/>
+                <x-add_driver_form :opcrs=$opcrs :divisions=$divisions/>
             </div>
 
             <div>
+                
                 <x-group_driver_form :measures=$measures :drivers=$driversact/>
             </div>
 
