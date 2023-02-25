@@ -13,7 +13,9 @@ class Driver extends Model
 
     protected $fillable = [
         'driver',
-        'opcr_ID'
+        'opcr_ID',
+        'division_ID',
+        'division_ID'
         
     ];
     public function measures()
@@ -24,5 +26,10 @@ class Driver extends Model
     public function opcr()
     {
         return $this->belongsTo(Opcr::class, 'opcr_ID');
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Division::class, 'division_ID');
     }
 }
