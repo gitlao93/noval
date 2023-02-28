@@ -10,9 +10,7 @@
             <label for="driver" class="col-form-label text-md-start">{{ __('Drivers') }}</label>
 
             <div>
-                <textarea id="driver" class="form-control @error('objectives') is-invalid @enderror" name="driver"
-                    value="{{ old('driver') }}" required autofocus>
-                                </textarea>
+                <textarea id="driver" class="form-control @error('objectives') is-invalid @enderror" name="driver" required autofocus></textarea>
                 @error('driver')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
