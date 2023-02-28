@@ -10,9 +10,7 @@
             <label for="objectives" class="col-form-label text-md-start">{{ __('Strategic Objectives') }}</label>
 
             <div>
-                <textarea id="objectives" class="form-control @error('objectives') is-invalid @enderror" name="objective"
-                    value="{{ old('objectives') }}" required autofocus>
-                                </textarea>
+                <textarea id="objectives" class="form-control @error('objectives') is-invalid @enderror" name="objective" required autofocus></textarea>
                 @error('objectives')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>

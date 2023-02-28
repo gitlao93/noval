@@ -5,11 +5,8 @@
     <div class="card-body">
         <div class="row mb-3">
             <label for="measure" class="col-form-label text-md-start">{{ __('Strategic Measure') }}</label>
-
             <div>
-                <textarea id="measure" class="form-control @error('measure') is-invalid @enderror" name="measure"
-                    value="{{ old('measure') }}" required autofocus>
-                                </textarea>
+                <textarea id="measure" class="form-control @error('measure') is-invalid @enderror" name="measure" required autofocus></textarea>
 
                 @error('measure')
                     <span class="invalid-feedback" role="alert">
