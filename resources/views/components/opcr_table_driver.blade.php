@@ -44,7 +44,7 @@
 <div class="container">
     <h2>BDD division level per Province</h2>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Bukidnon</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -53,9 +53,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -86,6 +99,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -94,7 +119,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Lanao Del Norte</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -103,9 +128,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -136,6 +174,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -146,7 +196,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Oriental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -155,9 +205,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -188,6 +251,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -196,7 +271,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Occidental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -205,9 +280,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -238,6 +326,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -248,7 +348,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12 mx-auto">
             <h3>Camiguin</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -257,9 +357,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -290,6 +403,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -310,7 +435,7 @@
 <div class="container">
     <h2>CPD division level per Province</h2>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Bukidnon</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -319,9 +444,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -352,6 +490,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -360,7 +510,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Lanao Del Norte</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -369,9 +519,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -402,6 +565,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -412,7 +587,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Oriental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -421,9 +596,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -454,6 +642,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -462,7 +662,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Occidental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -471,9 +671,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -504,6 +717,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -514,7 +739,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12 mx-auto">
             <h3>Camiguin</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -523,9 +748,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -556,6 +794,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -573,7 +823,7 @@
 <div class="container">
     <h2>FAD division level per Province</h2>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Bukidnon</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -582,10 +832,25 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
+
                     </tr>
+                  
                 </thead>
                 <tbody>
                     @foreach ($driversact as $driver)
@@ -615,6 +880,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -623,7 +900,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Lanao Del Norte</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -632,9 +909,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -665,6 +955,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -675,7 +977,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Oriental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -684,9 +986,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -717,6 +1032,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -725,7 +1052,7 @@
             </table>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
             <h3>Misamis Occidental</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -734,9 +1061,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -767,6 +1107,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -777,7 +1129,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-12 mx-auto">
             <h3>Camiguin</h3>
             <table class="table table-bordered border-primary">
                 <thead>
@@ -786,9 +1138,22 @@
                         <th rowspan="2" class="text-center align-middle">Measure</th>
                         <th rowspan="2" class="text-center align-middle">Div</th>
                         <th colspan="1" class="text-center align-middle">Annual Target</th>
+                        <th colspan="12" class="text-center align-middle">Month</th>
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
+                        <th class="text-center align-middle">Jan</th>
+                        <th class="text-center align-middle">Feb</th>
+                        <th class="text-center align-middle">Mar</th>
+                        <th class="text-center align-middle">Apr</th>
+                        <th class="text-center align-middle">May</th>
+                        <th class="text-center align-middle">Jun</th>
+                        <th class="text-center align-middle">Jul</th>
+                        <th class="text-center align-middle">Aug</th>
+                        <th class="text-center align-middle">Sep</th>
+                        <th class="text-center align-middle">Oct</th>
+                        <th class="text-center align-middle">Nov</th>
+                        <th class="text-center align-middle">Dec</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -819,6 +1184,18 @@
                                             </td>
                                         @endif
                                     @endforeach
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
+                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
