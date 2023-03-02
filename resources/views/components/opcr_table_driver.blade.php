@@ -1,6 +1,6 @@
-@props(['driversact', 'measures', 'provinces', 'annual_targets'])
+@props(['driversact', 'measures', 'provinces', 'annual_targets', 'monthly_targets'])
 <h1>This part is for the division Level View</h1>
-<table class="table table-bordered border-primary">
+{{-- <table class="table table-bordered border-primary">
     <thead>
         <tr>
             <th rowspan="2" class="text-center align-middle">Drivers</th>
@@ -32,15 +32,14 @@
                         @endif
                     </td>
 
-                    {{--  --}}
                 @endforeach
             </tr>
         @endforeach
         </tr>
         @endforeach
     </tbody>
-</table>
-
+</table> --}}
+{{-- {{var_dump($monthly_targets)}} --}}
 <div class="container">
     <h2>BDD division level per Province</h2>
     <div class="row">
@@ -91,26 +90,171 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
+                                            {{-- jan --}}
+                                            @if (isset($monthly_targets) == null))
+
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                                <td class="text-center align-middle">
+                                                    <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#jan<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                    id="#jan<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                        N/A
+                                                    </a>
+                                                </td>
+                                                <x-update_monthly_target_modal :month="'jan'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- feb --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#feb<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#feb<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'feb'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- mar --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#mar<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#mar<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'mar'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- apr --}}
+                                            @if (isset($monthly_targets) == null) 
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#apr<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#apr<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'apr'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- may --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#may<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#may<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'may'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- jun --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#jun<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#jun<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'jun'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- jul--}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#jul<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#jul<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'jul'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- aug --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#aug<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#aug<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'aug'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- sep --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#sep<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#sep<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'sep'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- oct--}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#oct<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#oct<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'oct'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- nov--}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#nov<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#nov<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'nov'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
+                                            {{-- dec --}}
+                                            @if (isset($monthly_targets) == null)
+                                                <td class="text-center align-middle"></td>
+                                            @else
+                                            <td class="text-center align-middle">
+                                                <a href="#" data-bs-toggle="modal"
+                                                data-bs-target="#dec<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                id="#dec<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
+                                                    N/A
+                                                </a>
+                                            </td>
+                                            <x-update_monthly_target_modal :month="'dec'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
+                                            @endif
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -165,11 +309,11 @@
                                         @if ($province->province == 'Lanao Del Norte')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -243,10 +387,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -317,11 +461,11 @@
                                         @if ($province->province == 'Misamis Occidental')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -395,10 +539,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -431,7 +575,7 @@
 
 
 
-
+{{-- 
 <div class="container">
     <h2>CPD division level per Province</h2>
     <div class="row">
@@ -482,10 +626,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -556,11 +700,11 @@
                                         @if ($province->province == 'Lanao Del Norte')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -634,10 +778,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -708,11 +852,11 @@
                                         @if ($province->province == 'Misamis Occidental')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -786,10 +930,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -816,11 +960,11 @@
 
     </div>
 
-</div>
+</div> --}}
 
 
 
-<div class="container">
+{{-- <div class="container">
     <h2>FAD division level per Province</h2>
     <div class="row">
         <div class="col-md-12">
@@ -850,7 +994,7 @@
                         <th class="text-center align-middle">Dec</th>
 
                     </tr>
-                  
+
                 </thead>
                 <tbody>
                     @foreach ($driversact as $driver)
@@ -872,10 +1016,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -946,11 +1090,11 @@
                                         @if ($province->province == 'Lanao Del Norte')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -1024,10 +1168,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -1098,11 +1242,11 @@
                                         @if ($province->province == 'Misamis Occidental')
                                             <td class="text-center align-middle">
 
-                                               @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -1176,10 +1320,10 @@
                                             <td class="text-center align-middle">
 
                                                 @if (isset($annual_targets[$measure->measure_ID][$province->province_ID]))
-                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}</p>
+                                                    <p>{{ $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target }}
+                                                    </p>
                                                 @else
                                                     <p>N/A</p>
-                                                    
                                                 @endif
                                             </td>
                                         @endif
@@ -1206,4 +1350,7 @@
 
     </div>
 
-</div>
+</div> --}}
+
+
+

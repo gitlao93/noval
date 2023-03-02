@@ -10,6 +10,7 @@ use App\Models\Province;
 use App\Models\Objective;
 use App\Models\AnnualTarget;
 use Illuminate\Http\Request;
+use App\Models\MonthlyTarget;
 
 class ObjectiveController extends Controller
 {
@@ -30,6 +31,10 @@ class ObjectiveController extends Controller
                 })
                 ->get(['drivers.*', 'divisions.division']);
 
+        $monthly_targets = MonthlyTarget::join('annual_targets', 'annual_targets.annual_target_ID', '=', 'monthly_targets.annual_target_ID')
+                ->get(['monthly_targets.*', 'annual_targets.*'])
+                ->groupBy(['month', 'annual_target_ID']);
+        // $monthly_targets = MonthlyTarget::all();
         
         
         $objectives = Objective::all();
@@ -50,10 +55,12 @@ class ObjectiveController extends Controller
         $divisions = Division::all();
         $opcrs = Opcr::all();
 
+        
+
 
         
     
-        return view('/welcome', compact('objectives','objectivesact', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs', 'opcrs_active','driversact'));
+        return view('/welcome', compact('objectives','objectivesact', 'measures', 'provinces', 'annual_targets', 'divisions', 'opcrs', 'opcrs_active','driversact','monthly_targets'));
     }
 
     public function store(Request $request)
