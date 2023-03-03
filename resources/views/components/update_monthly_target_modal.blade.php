@@ -3,6 +3,7 @@
 @props(['month', 'division_ID', 'annual_target'])
 
 
+
 <div class="modal fade" id="<?=$month.'_'.$annual_target?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -18,9 +19,9 @@
                 <form method="POST" action="{{ route('monthly_targets.store') }}">
                     @csrf
                     
-                        <input type="text" name="annual_target_ID" value="{{$annual_target}}">
-                        <input type="text" name="division_ID" value="{{$division_ID}}">
-                        <input type="text" name="month" value="{{$month}}">
+                        <input type="hidden" name="annual_target_ID" value="{{$annual_target}}">
+                        <input type="hidden" name="division_ID" value="{{$division_ID}}">
+                        <input type="hidden" name="month" value="{{$month}}">
                         <div class="row">
                             <label for="monthly_target"
                                 class="col-form-label text-md-start">{{ __('Monthly Target') }}</label>

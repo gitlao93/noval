@@ -1,6 +1,6 @@
 @props(['driversact', 'measures', 'provinces', 'annual_targets', 'monthly_targets'])
 <h1>This part is for the division Level View</h1>
-{{-- <table class="table table-bordered border-primary">
+<table class="table table-bordered border-primary">
     <thead>
         <tr>
             <th rowspan="2" class="text-center align-middle">Drivers</th>
@@ -38,8 +38,10 @@
         </tr>
         @endforeach
     </tbody>
-</table> --}}
-{{-- {{var_dump($monthly_targets)}} --}}
+</table>
+
+
+
 <div class="container">
     <h2>BDD division level per Province</h2>
     <div class="row">
@@ -56,18 +58,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}    
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -96,163 +92,32 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
-                                            {{-- jan --}}
-                                            @if (isset($monthly_targets) == null))
 
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                                <td class="text-center align-middle">
-                                                    <a href="#" data-bs-toggle="modal"
-                                                    data-bs-target="#jan<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                    id="#jan<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                        N/A
-                                                    </a>
-                                                </td>
-                                                <x-update_monthly_target_modal :month="'jan'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- feb --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#feb<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#feb<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'feb'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- mar --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#mar<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#mar<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'mar'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- apr --}}
-                                            @if (isset($monthly_targets) == null) 
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#apr<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#apr<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'apr'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- may --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#may<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#may<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'may'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- jun --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#jun<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#jun<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'jun'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- jul--}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#jul<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#jul<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'jul'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- aug --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#aug<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#aug<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'aug'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- sep --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#sep<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#sep<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'sep'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- oct--}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#oct<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#oct<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'oct'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- nov--}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#nov<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#nov<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'nov'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
-                                            {{-- dec --}}
-                                            @if (isset($monthly_targets) == null)
-                                                <td class="text-center align-middle"></td>
-                                            @else
-                                            <td class="text-center align-middle">
-                                                <a href="#" data-bs-toggle="modal"
-                                                data-bs-target="#dec<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
-                                                id="#dec<?='_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>" class="text-danger">
-                                                    N/A
-                                                </a>
-                                            </td>
-                                            <x-update_monthly_target_modal :month="'dec'" :division_ID="1" :annual_target="$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID" />
-                                            @endif
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="1"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
                                 </tr>
@@ -276,18 +141,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -316,20 +175,33 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="1"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -353,18 +225,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -393,20 +259,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="1"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -428,18 +308,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -468,20 +342,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="1"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -505,18 +393,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -545,20 +427,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="1"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -573,9 +469,6 @@
 
 
 
-
-
-{{-- 
 <div class="container">
     <h2>CPD division level per Province</h2>
     <div class="row">
@@ -592,18 +485,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -632,20 +519,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="2"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -667,18 +568,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -707,20 +602,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="2"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -744,18 +653,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -784,20 +687,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="2"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -819,18 +736,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -859,20 +770,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="2"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -896,18 +821,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -936,20 +855,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="2"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -960,11 +893,11 @@
 
     </div>
 
-</div> --}}
+</div> 
 
 
 
-{{-- <div class="container">
+<div class="container">
     <h2>FAD division level per Province</h2>
     <div class="row">
         <div class="col-md-12">
@@ -980,18 +913,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Bukidnon</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
 
                     </tr>
 
@@ -1022,20 +949,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="3"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -1057,18 +998,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Lanao Del Norte</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -1097,20 +1032,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="3"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -1134,18 +1083,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Oriental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -1174,20 +1117,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="3"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -1209,18 +1166,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Misamis Occidental</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -1249,20 +1200,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="3"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -1286,18 +1251,12 @@
                     </tr>
                     <tr>
                         <th class="text-center align-middle">Camiguin</th>
-                        <th class="text-center align-middle">Jan</th>
-                        <th class="text-center align-middle">Feb</th>
-                        <th class="text-center align-middle">Mar</th>
-                        <th class="text-center align-middle">Apr</th>
-                        <th class="text-center align-middle">May</th>
-                        <th class="text-center align-middle">Jun</th>
-                        <th class="text-center align-middle">Jul</th>
-                        <th class="text-center align-middle">Aug</th>
-                        <th class="text-center align-middle">Sep</th>
-                        <th class="text-center align-middle">Oct</th>
-                        <th class="text-center align-middle">Nov</th>
-                        <th class="text-center align-middle">Dec</th>
+                        {{-- loop for the months of the year header part --}}
+                        @for ($i = 1; $i <= 12; $i++)
+                            <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+                            <th class="text-center align-middle">{{ $month->format('M') }}</th>
+                        @endfor
+                        {{-- end of loop for the months of the year header part --}}
                     </tr>
                 </thead>
                 <tbody>
@@ -1326,20 +1285,34 @@
                                                     <p>N/A</p>
                                                 @endif
                                             </td>
+
+                                            {{-- loop for the months of the year monthly target area--}}
+                                            @for ($i = 1; $i <= 12; $i++)
+                                                <?php $month = Carbon\Carbon::createFromDate(null, $i, 1); ?>
+
+                                                @if (isset(
+                                                        $monthly_targets[strtolower($month->format('M'))][
+                                                            $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID
+                                                        ]))
+                                                    <td class="text-center align-middle">
+                                                        {{ $monthly_targets[strtolower($month->format('M'))][$annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID]->first()->monthly_target }}
+                                                    </td>
+                                                @else
+                                                    <td class="text-center align-middle">
+                                                        <a href="#" data-bs-toggle="modal"
+                                                            data-bs-target="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            id="#<?= strtolower($month->format('M')) . '_' . $annual_targets[$measure->measure_ID][$province->province_ID]->first()->annual_target_ID ?>"
+                                                            class="text-danger">N/A</a>
+                                                    </td>
+                                                    <x-update_monthly_target_modal :month="strtolower($month->format('M'))" :division_ID="3"
+                                                        :annual_target="$annual_targets[$measure->measure_ID][
+                                                            $province->province_ID
+                                                        ]->first()->annual_target_ID" />
+                                                @endif
+                                            @endfor
+                                            {{-- end of loop for the months of the year monthly target area--}}            
                                         @endif
                                     @endforeach
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
-                                    <td class="text-center align-middle">N/A</td>
                                 </tr>
                             @endforeach
                         @endif
@@ -1350,7 +1323,4 @@
 
     </div>
 
-</div> --}}
-
-
-
+</div>
