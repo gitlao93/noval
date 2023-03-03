@@ -17,6 +17,10 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
+
+
+
+
 </head>
 
 <body>
@@ -25,26 +29,26 @@
         <div class="align-self-stretch">
 
             <div>
-                
-                <x-add_opcr_form/>
+
+                <x-add_opcr_form />
             </div>
 
             <div>
-                <x-add_objective_form :opcrs=$opcrs/>
+                <x-add_objective_form :opcrs=$opcrs />
             </div>
 
 
             <div>
-                <x-add_measure_form :objectives=$objectives :divisions=$divisions/>
+                <x-add_measure_form :objectives=$objectives :divisions=$divisions />
             </div>
 
             <div>
-                <x-add_driver_form :opcrs=$opcrs :divisions=$divisions/>
+                <x-add_driver_form :opcrs=$opcrs :divisions=$divisions />
             </div>
 
             <div>
-                
-                <x-group_driver_form :measures=$measures :drivers=$driversact/>
+
+                <x-group_driver_form :measures=$measures :drivers=$driversact />
             </div>
 
 
@@ -58,11 +62,35 @@
 
             <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/> --}}
 
-            <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures :annual_targets=$annual_targets :monthly_targets=$monthly_targets/>
+            <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures
+                :annual_targets=$annual_targets :monthly_targets=$monthly_targets />
 
         </div>
 
     </div>
+
+    <script>
+        function printTable() {
+            var printButton = document.getElementById("print-button");
+            
+            printButton.addEventListener("click", function() {
+                
+                var table = document.getElementById("bukidnun-bdd-table").outerHTML;
+                // console.log(table)
+                var win = window.open('', '_blank');
+                win.document.write('<html><head><title>Print Table</title>');
+                win.document.write(
+                    '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />'
+                    );
+                win.document.write('</head><body>');
+                win.document.write(table);
+                win.document.write('</body></html>');
+                win.document.close();
+                win.print();
+            });
+        }
+    </script>
+
 </body>
 
 </html>

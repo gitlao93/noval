@@ -47,7 +47,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3>Bukidnon</h3>
-            <table class="table table-bordered border-primary">
+            <table class="table table-bordered border-primary" id="bukidnun-bdd-table">
                 <thead>
                     <tr>
                         <th rowspan="2" class="text-center align-middle">Drivers</th>
@@ -126,6 +126,8 @@
                     @endforeach
                 </tbody>
             </table>
+
+            <button class="btn btn-primary" onclick="printTable()" id="print-button">Print Table</button>
         </div>
 
         <div class="col-md-12">
