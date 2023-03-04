@@ -24,64 +24,122 @@
 </head>
 
 <body>
-    <div class="container-fluid d-flex flex-row flex-nowrap justify-content-center">
+    <header>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
 
-        <div class="align-self-stretch">
+                    <h2 class="py-2"><a class="nav-link" href="/"> NOVAL</a></h2>
 
-            <div>
-
-                <x-add_opcr_form />
+                </div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/regional">Regional</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/provincial">Provincial</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division BDD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-bdd-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division CPD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-cpd-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division FAD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-fad-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
             </div>
-
-            <div>
-                <x-add_objective_form :opcrs=$opcrs />
-            </div>
-
-
-            <div>
-                <x-add_measure_form :objectives=$objectives :divisions=$divisions />
-            </div>
-
-            <div>
-                <x-add_driver_form :opcrs=$opcrs :divisions=$divisions />
-            </div>
-
-            <div>
-
-                <x-group_driver_form :measures=$measures :drivers=$driversact />
-            </div>
-
-
         </div>
+    </header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 d-flex flex-wrap">
+
+                    <x-add_opcr_form />
+
+
+                    <x-add_objective_form :opcrs=$opcrs />
 
 
 
-        <div class="col align-self-stretch px-5 py-3 mx-auto">
+                    <x-add_measure_form :objectives=$objectives :divisions=$divisions />
 
-            {{-- <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
+
+                    <x-add_driver_form :opcrs=$opcrs :divisions=$divisions />
+
+
+
+                    <x-group_driver_form :measures=$measures :drivers=$driversact />
+
+
+
+            </div>
+
+            <div class="col-12">
+
+                {{-- <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
 
             <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/> --}}
 
-            <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures
-                :annual_targets=$annual_targets :monthly_targets=$monthly_targets />
+                <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures
+                    :annual_targets=$annual_targets :monthly_targets=$monthly_targets />
 
+            </div>
         </div>
-
     </div>
 
     <script>
         function printTable() {
             var printButton = document.getElementById("print-button");
-            
+
             printButton.addEventListener("click", function() {
-                
+
                 var table = document.getElementById("bukidnun-bdd-table").outerHTML;
                 // console.log(table)
                 var win = window.open('', '_blank');
                 win.document.write('<html><head><title>Print Table</title>');
                 win.document.write(
                     '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" />'
-                    );
+                );
                 win.document.write('</head><body>');
                 win.document.write(table);
                 win.document.write('</body></html>');

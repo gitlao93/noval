@@ -22,62 +22,68 @@
 <body>
 
     <header>
-        <div class="row">
-            <div class="col-4">d</div>
-            <div class="col-8">
-                <nav class="navbar navbar-expand-lg navbar-light">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse" id="navbarNav">
-                            <ul class="navbar-nav">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/regional">Regional</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="/provincial">Provincial</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Division BDD
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="/division-bdd-buk">Bukidnun</a></li>
-                                        <li><a class="dropdown-item" href="/division-bdd-ldn">LDN</a></li>
-                                        <li><a class="dropdown-item" href="/division-bdd-misor">MisOr</a></li>
-                                        <li><a class="dropdown-item" href="/division-bdd-misoc">MisOc</a></li>
-                                        <li><a class="dropdown-item" href="/division-bdd-cam">MisOc</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Division CPD
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="/division-cpd-buk">Bukidnun</a></li>
-                                        <li><a class="dropdown-item" href="/division-cpd-ldn">LDN</a></li>
-                                        <li><a class="dropdown-item" href="/division-cpd-misor">MisOr</a></li>
-                                        <li><a class="dropdown-item" href="/division-cpd-misoc">MisOc</a></li>
-                                        <li><a class="dropdown-item" href="/division-cpd-cam">MisOc</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Division FAD
-                                    </a>
-                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <li><a class="dropdown-item" href="/division-fad-buk">Bukidnun</a></li>
-                                        <li><a class="dropdown-item" href="/division-fad-ldn">LDN</a></li>
-                                        <li><a class="dropdown-item" href="/division-fad-misor">MisOr</a></li>
-                                        <li><a class="dropdown-item" href="/division-fad-misoc">MisOc</a></li>
-                                        <li><a class="dropdown-item" href="/division-fad-cam">MisOc</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    
+                    <h2 class="py-2"><a class="nav-link" href="/"> NOVAL</a></h2>
+
+                </div>
+                <div class="col-8">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid">
+                            <div class="collapse navbar-collapse" id="navbarNav">
+                                <ul class="navbar-nav">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/regional">Regional</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/provincial">Provincial</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division BDD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-bdd-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-bdd-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division CPD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-cpd-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-cpd-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Division FAD
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="/division-fad-buk">Bukidnun</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-ldn">LDN</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-misor">MisOr</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-misoc">MisOc</a></li>
+                                            <li><a class="dropdown-item" href="/division-fad-cam">Cam</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
         </div>
     </header>

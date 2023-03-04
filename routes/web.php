@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OpcrController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\MeasureController;
+use App\Http\Controllers\RegionalController;
 use App\Http\Controllers\ObjectiveController;
 use App\Http\Controllers\AnnualTargetController;
 use App\Http\Controllers\MonthlyTargetController;
@@ -35,9 +36,7 @@ Route::post('/opcr', [OpcrController::class, 'store'])->name('opcr.store');
 Route::put('/annual_targets', [AnnualTargetController::class, 'update'])->name('annual_targets.update');
 
 
-Route::get('/regional', function(){
-    return view('regional');
-});
+Route::get('/regional', [RegionalController::class, 'index'])->name('regional.index');
 Route::get('/provincial', function(){
     return view('provincial');
 });
