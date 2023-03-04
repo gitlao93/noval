@@ -116,9 +116,9 @@
 
             <div class="col-12">
 
-                {{-- <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
+                <x-opcr_table :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
 
-            <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/> --}}
+            <x-opcr_table_provincial :provinces=$provinces :objectivesact=$objectivesact :measures=$measures :annual_targets=$annual_targets/>
 
                 <x-opcr_table_driver :provinces=$provinces :driversact=$driversact :measures=$measures
                     :annual_targets=$annual_targets :monthly_targets=$monthly_targets />

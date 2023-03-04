@@ -1,5 +1,5 @@
 @props(['objectivesact', 'measures', 'provinces', 'annual_targets'])
-<h1>Regional OPCR</h1>
+
 <table class="table table-bordered border-primary">
     <thead>
         <tr>

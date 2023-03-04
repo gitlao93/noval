@@ -96,7 +96,7 @@
 
             printButton.addEventListener("click", function() {
 
-                var table = document.getElementById("bukidnun-bdd-table").outerHTML;
+                var table = document.getElementById("table").outerHTML;
                 // console.log(table)
                 var win = window.open('', '_blank');
                 win.document.write('<html><head><title>Print Table</title>');

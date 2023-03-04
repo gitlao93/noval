@@ -6,6 +6,10 @@ use App\Http\Controllers\DriverController;
 use App\Http\Controllers\MeasureController;
 use App\Http\Controllers\RegionalController;
 use App\Http\Controllers\ObjectiveController;
+use App\Http\Controllers\ProvincialController;
+use App\Http\Controllers\DivisionBddController;
+use App\Http\Controllers\DivisionCpdController;
+use App\Http\Controllers\DivisionFadController;
 use App\Http\Controllers\AnnualTargetController;
 use App\Http\Controllers\MonthlyTargetController;
 
@@ -37,55 +41,25 @@ Route::put('/annual_targets', [AnnualTargetController::class, 'update'])->name('
 
 
 Route::get('/regional', [RegionalController::class, 'index'])->name('regional.index');
-Route::get('/provincial', function(){
-    return view('provincial');
-});
+Route::get('/provincial', [ProvincialController::class, 'index'])->name('regional.index');
 // bdd
-Route::get('/division-bdd-buk', function(){
-    return view('division-bdd-buk');
-});
-Route::get('/division-bdd-ldn', function(){
-    return view('division-bdd-ldn');
-});
-Route::get('/division-bdd-misor', function(){
-    return view('division-bdd-misor');
-});
-Route::get('/division-bdd-misoc', function(){
-    return view('division-bdd-misoc');
-});
-Route::get('/division-bdd-cam', function(){
-    return view('division-bdd-cam');
-});
+Route::get('/division-bdd-buk', [DivisionBddController::class, 'bukidnunBddIndex'])->name('division.bukidnunBddIndex');
+Route::get('/division-bdd-ldn', [DivisionBddController::class, 'lanaoDNBddIndex'])->name('division.lanaoDNBddIndex');
+Route::get('/division-bdd-misor', [DivisionBddController::class, 'misOrBddIndex'])->name('division.misOrBddIndex');
+Route::get('/division-bdd-misoc', [DivisionBddController::class, 'misOcBddIndex'])->name('division.misOcBddIndex');
+Route::get('/division-bdd-cam', [DivisionBddController::class, 'camiguinBddIndex'])->name('division.camiguinBddIndex');
+
 //cpd
-Route::get('/division-cpd-buk', function(){
-    return view('division-cpd-buk');
-});
-Route::get('/division-cpd-ldn', function(){
-    return view('division-cpd-ldn');
-});
-Route::get('/division-cpd-misor', function(){
-    return view('division-cpd-misor');
-});
-Route::get('/division-cpd-misoc', function(){
-    return view('division-cpd-misoc');
-});
-Route::get('/division-cpd-cam', function(){
-    return view('division-cpd-cam');
-});
+Route::get('/division-cpd-buk', [DivisionCpdController::class, 'bukidnunCpdIndex'])->name('division.bukidnunCpdIndex');
+Route::get('/division-cpd-ldn', [DivisionCpdController::class, 'lanaoDNCpdIndex'])->name('division.lanaoDNCpdIndex');
+Route::get('/division-cpd-misor', [DivisionCpdController::class, 'misOrCpdIndex'])->name('division.misOrCpdIndex');
+Route::get('/division-cpd-misoc', [DivisionCpdController::class, 'misOcCpdIndex'])->name('division.misOcCpdIndex');
+Route::get('/division-cpd-cam', [DivisionCpdController::class, 'camiguinCpdIndex'])->name('division.camiguinCpdIndex');
+
 //fad
-Route::get('/division-fad-buk', function(){
-    return view('division-fad-buk');
-});
-Route::get('/division-fad-ldn', function(){
-    return view('division-fad-ldn');
-});
-Route::get('/division-fad-misor', function(){
-    return view('division-fad-misor');
-});
-Route::get('/division-fad-misoc', function(){
-    return view('division-fad-misoc');
-});
-Route::get('/division-fad-cam', function(){
-    return view('division-fad-cam');
-});
+Route::get('/division-fad-buk', [DivisionFadController::class, 'bukidnunFadIndex'])->name('division.bukidnunFadIndex');
+Route::get('/division-fad-ldn', [DivisionFadController::class, 'lanaoDNFadIndex'])->name('division.lanaoDNFadIndex');
+Route::get('/division-fad-misor', [DivisionFadController::class, 'misOrFadIndex'])->name('division.misOrFadIndex');
+Route::get('/division-fad-misoc', [DivisionFadController::class, 'misOcFadIndex'])->name('division.misOcFadIndex');
+Route::get('/division-fad-cam', [DivisionFadController::class, 'camiguinFadIndex'])->name('division.camiguinFadIndex');
 
